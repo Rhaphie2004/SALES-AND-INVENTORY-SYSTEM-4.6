@@ -13,6 +13,8 @@ namespace sims
         private DateTime lockoutEndTime;
         private System.Windows.Forms.Timer lockoutTimer;
         private const string lockoutFilePath = "lockout_data.txt";
+        private const int lockoutDurationSeconds = 20; // Configurable lockout duration
+
         public Login_Form()
         {
             InitializeComponent();
@@ -49,13 +51,22 @@ namespace sims
                             // If the lockout is still active
                             if (DateTime.Now < lockoutEndTime)
                             {
+                                // Calculate remaining lockout time
+                                TimeSpan remainingTime = lockoutEndTime - DateTime.Now;
+
+                                // Display lockout message and disable login
                                 DisableLogin();
+
+                                // Display a message about the active lockout
+                                MessageBox.Show($"Account is locked due to too many failed attempts. Please wait {(int)remainingTime.TotalSeconds} seconds before trying again.",
+                                    "Login Locked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                             else
                             {
-                                // Lockout has expired, but we still show the remaining attempts
+                                // Lockout has expired while application was closed
                                 failedAttempts = 0;
                                 UpdateAttemptsLabel();
+
                                 // Delete the lockout file as it's no longer needed
                                 File.Delete(lockoutFilePath);
                             }
@@ -135,8 +146,9 @@ namespace sims
             {
                 if (DateTime.Now < lockoutEndTime)
                 {
-                    int remainingTime = (int)(lockoutEndTime - DateTime.Now).TotalSeconds;
-                    MessageBox.Show($"Too many failed attempts. Please wait {remainingTime} seconds before trying again.", "Login Locked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TimeSpan remainingTime = lockoutEndTime - DateTime.Now;
+                    MessageBox.Show($"Too many failed attempts. Please wait {(int)remainingTime.TotalSeconds} seconds before trying again.",
+                        "Login Locked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
@@ -222,7 +234,6 @@ namespace sims
                                 this.Hide();
                                 return;
                             }
-
                         }
                     }
                 }
@@ -234,21 +245,23 @@ namespace sims
 
             // If login fails
             failedAttempts++;
+            UpdateAttemptsLabel();
+
             if (failedAttempts >= maxAttempts)
             {
-                lockoutEndTime = DateTime.Now.AddSeconds(20);
+                // Set lockout end time to current time plus lockout duration
+                lockoutEndTime = DateTime.Now.AddSeconds(lockoutDurationSeconds);
+
+                // Show the failed attempts form
                 Failed_Attempts failedForm = new Failed_Attempts();
                 failedForm.Owner = this;  // Set the login form as owner
                 failedForm.Show();
 
+                // Disable login and start lockout timer
                 DisableLogin();
 
                 // Save the lockout data to file for persistence
                 SaveLockoutData();
-            }
-            else
-            {
-                UpdateAttemptsLabel();
             }
 
             usernameTxt.Focus();
@@ -284,8 +297,8 @@ namespace sims
         // Update the label to show remaining time
         private void UpdateLockoutLabel()
         {
-            int remainingTime = (int)(lockoutEndTime - DateTime.Now).TotalSeconds;
-            lockoutLabel.Text = $"Try again in {remainingTime} seconds...";
+            TimeSpan remainingTime = lockoutEndTime - DateTime.Now;
+            lockoutLabel.Text = $"Try again in {(int)remainingTime.TotalSeconds} seconds...";
         }
 
         // Update the label to show attempts left
@@ -299,6 +312,13 @@ namespace sims
         private void ResetLoginState()
         {
             failedAttempts = 0; // Reset attempts on successful login
+
+            // Delete the lockout file if it exists
+            if (File.Exists(lockoutFilePath))
+            {
+                File.Delete(lockoutFilePath);
+            }
+
             lockoutLabel.Visible = false; // Hide countdown timer
             AttemptsLbl.Visible = true; // Show attempts label
             UpdateAttemptsLabel();
@@ -310,6 +330,15 @@ namespace sims
             LoginBtn.Enabled = false;
             AttemptsLbl.Visible = false; // Hide attempts counter
             lockoutLabel.Visible = true; // Show lockout countdown
+
+            // Stop any existing timer
+            if (lockoutTimer != null)
+            {
+                lockoutTimer.Stop();
+                lockoutTimer.Dispose();
+            }
+
+            // Create new timer
             lockoutTimer = new System.Windows.Forms.Timer();
             lockoutTimer.Interval = 1000; // 1 second interval
             lockoutTimer.Tick += LockoutTimer_Tick;
