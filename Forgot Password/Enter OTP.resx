@@ -117,30 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="confirmPasswordTxt.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUoAAAArCAYAAAAe9sFOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEySURBVHhe7dYxSsNwGMZhR4/mBTyCh/AOTp7GLUn/SaeC
-        Q7cOTt0cglQsGEokSyBFfN3zPPBu3/zju7kB4H+qqrrruu61ruvRzGzNm1q42WweFpEspdzvdru+7/sR
-        YO2mFu73+49SyuMcyrZt306n0/UtwGoNwzA2TfM1h3J6NQFYmtoolAB/EEqAQCgBAqEECIQSIBBKgEAo
-        AQKhBAiEEiAQSoBAKAECoQQIhBIgEEqAQCgBAqEECIQSIBBKgEAoAQKhBAiEEiAQSoBAKAECoQQIhBIg
-        EEqAQCgBAqEECIQSIBBKgEAoAQKhBAiEEiAQSoBgEcpSyvv5fL6+AVity+UyNk0zzKFs2/bpcDh8Xh8C
-        rNXxePzebrcvcygnXdc9T2+mmZnV4xTJqqpuF6EE4Hc/5U4qqBCcEqsAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="newPasswordTxt.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUoAAAArCAYAAAAe9sFOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEySURBVHhe7dYxSsNwGMZhR4/mBTyCh/AOTp7GLUn/SaeC
-        Q7cOTt0cglQsGEokSyBFfN3zPPBu3/zju7kB4H+qqrrruu61ruvRzGzNm1q42WweFpEspdzvdru+7/sR
-        YO2mFu73+49SyuMcyrZt306n0/UtwGoNwzA2TfM1h3J6NQFYmtoolAB/EEqAQCgBAqEECIQSIBBKgEAo
-        AQKhBAiEEiAQSoBAKAECoQQIhBIgEEqAQCgBAqEECIQSIBBKgEAoAQKhBAiEEiAQSoBAKAECoQQIhBIg
-        EEqAQCgBAqEECIQSIBBKgEAoAQKhBAiEEiAQSoBgEcpSyvv5fL6+AVity+UyNk0zzKFs2/bpcDh8Xh8C
-        rNXxePzebrcvcygnXdc9T2+mmZnV4xTJqqpuF6EE4Hc/5U4qqBCcEqsAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="gunaElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>9, 35</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="otpTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAWMAAAAsCAYAAACwu9nsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFASURBVHhe7dYhTgNBGIbhkRyNC3AEDsEdUJwGt93OblUT
+        RF0Fqg6xISU0YdOUDLKe7SeeJ/nU/PrNlFJK6brufhzHt9VqdTEzs2XWurterx9bh0ut9WG73U7TNF0A
+        WE7r7m63+6y1PpVhGN6Px+P1DQALmOf50vf9d2lfZQBup3VYjAFuTIwBAogxQAAxBgggxgABxBgggBgD
+        BBBjgABiDBBAjAECiDFAADEGCCDGAAHEGCCAGAMEEGOAAGIMEECMAQKIMUAAMQYIIMYAAcQYIIAYAwQQ
+        Y4AAYgwQQIwBAogxQAAxBgggxgABxBgggBgDBBBjgABiDBBAjAECiDFAADEGCCDGAAH+Ylxr/TidTtdv
+        ACzgfD5f+r6fyzAMz/v9/uv6AID/dzgcfjabzWtpxnF8ad9kMzNbdi3EXdfd/QJiIs5bf15zRAAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <metadata name="gunaDragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>126, 35</value>
   </metadata>
 </root>
