@@ -14,9 +14,9 @@ namespace sims.Admin_Side.Users
 {
     public partial class New_Staff : Form
     {
-        private Manage_User_Staff dashboard;
+        private User_Staff dashboard;
 
-        public New_Staff(Manage_User_Staff dashboard)
+        public New_Staff(User_Staff dashboard)
         {
             InitializeComponent();
             ConfirmPasswordTextBox();

@@ -1,24 +1,29 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace sims.Admin_Side.Users
 {
-    public partial class Manage_User_Staff : UserControl
+    public partial class User_Staff : Form
     {
-        public Manage_User_Staff()
+        public User_Staff()
         {
             InitializeComponent();
             staffsDgv.DataBindingComplete += staffsDgv_DataBindingComplete;
         }
-
         public DataGridView StaffsDgv
         {
             get { return staffsDgv; }
         }
 
-        private void Manage_User_Staff_Load(object sender, EventArgs e)
+        private void User_Staff_Load(object sender, EventArgs e)
         {
             LoadStaff();
         }
@@ -114,7 +119,6 @@ namespace sims.Admin_Side.Users
                 }
             }
         }
-
         private void staffsDgv_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             staffsDgv.ClearSelection();
