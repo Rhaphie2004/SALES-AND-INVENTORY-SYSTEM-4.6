@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Guna.UI.Animation.Animation animation1 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardOwner));
             this.PanelMenu = new System.Windows.Forms.Panel();
             this.backupDbBtn = new FontAwesome.Sharp.IconButton();
@@ -57,7 +58,7 @@
             this.greetingNameTxt = new System.Windows.Forms.Label();
             this.DashboardPanel = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.TimerTransition = new System.Windows.Forms.Timer(this.components);
+            this.gunaTransition1 = new Guna.UI.WinForms.GunaTransition(this.components);
             this.PanelMenu.SuspendLayout();
             this.salesPanelSubMenu.SuspendLayout();
             this.InventoryPanelSubMenu.SuspendLayout();
@@ -82,6 +83,7 @@
             this.PanelMenu.Controls.Add(this.CategoriesBtn);
             this.PanelMenu.Controls.Add(this.DashboardBtn);
             this.PanelMenu.Controls.Add(this.panel12);
+            this.gunaTransition1.SetDecoration(this.PanelMenu, Guna.UI.Animation.DecorationType.None);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelMenu.Location = new System.Drawing.Point(0, 0);
             this.PanelMenu.Name = "PanelMenu";
@@ -91,6 +93,7 @@
             // backupDbBtn
             // 
             this.backupDbBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.backupDbBtn, Guna.UI.Animation.DecorationType.None);
             this.backupDbBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.backupDbBtn.FlatAppearance.BorderSize = 0;
             this.backupDbBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -114,6 +117,7 @@
             // UserBtn
             // 
             this.UserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.UserBtn, Guna.UI.Animation.DecorationType.None);
             this.UserBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserBtn.FlatAppearance.BorderSize = 0;
             this.UserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -138,6 +142,7 @@
             // 
             this.salesPanelSubMenu.Controls.Add(this.salesReportBtn);
             this.salesPanelSubMenu.Controls.Add(this.productSalesBtn);
+            this.gunaTransition1.SetDecoration(this.salesPanelSubMenu, Guna.UI.Animation.DecorationType.None);
             this.salesPanelSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.salesPanelSubMenu.Location = new System.Drawing.Point(0, 428);
             this.salesPanelSubMenu.Name = "salesPanelSubMenu";
@@ -147,6 +152,7 @@
             // salesReportBtn
             // 
             this.salesReportBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.salesReportBtn, Guna.UI.Animation.DecorationType.None);
             this.salesReportBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.salesReportBtn.FlatAppearance.BorderSize = 0;
             this.salesReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -170,6 +176,7 @@
             // productSalesBtn
             // 
             this.productSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.productSalesBtn, Guna.UI.Animation.DecorationType.None);
             this.productSalesBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.productSalesBtn.FlatAppearance.BorderSize = 0;
             this.productSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -193,6 +200,7 @@
             // SalesBtn
             // 
             this.SalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.SalesBtn, Guna.UI.Animation.DecorationType.None);
             this.SalesBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.SalesBtn.FlatAppearance.BorderSize = 0;
             this.SalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -217,6 +225,7 @@
             // 
             this.InventoryPanelSubMenu.Controls.Add(this.StocksBtn);
             this.InventoryPanelSubMenu.Controls.Add(this.ItemsBtn);
+            this.gunaTransition1.SetDecoration(this.InventoryPanelSubMenu, Guna.UI.Animation.DecorationType.None);
             this.InventoryPanelSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.InventoryPanelSubMenu.Location = new System.Drawing.Point(0, 256);
             this.InventoryPanelSubMenu.Name = "InventoryPanelSubMenu";
@@ -226,6 +235,7 @@
             // StocksBtn
             // 
             this.StocksBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.StocksBtn, Guna.UI.Animation.DecorationType.None);
             this.StocksBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.StocksBtn.FlatAppearance.BorderSize = 0;
             this.StocksBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -249,6 +259,7 @@
             // ItemsBtn
             // 
             this.ItemsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.ItemsBtn, Guna.UI.Animation.DecorationType.None);
             this.ItemsBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.ItemsBtn.FlatAppearance.BorderSize = 0;
             this.ItemsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -272,6 +283,7 @@
             // inventoryBtn
             // 
             this.inventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.inventoryBtn, Guna.UI.Animation.DecorationType.None);
             this.inventoryBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.inventoryBtn.FlatAppearance.BorderSize = 0;
             this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -296,6 +308,7 @@
             // SignoutBtn
             // 
             this.SignoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.SignoutBtn, Guna.UI.Animation.DecorationType.None);
             this.SignoutBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SignoutBtn.FlatAppearance.BorderSize = 0;
             this.SignoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -320,6 +333,7 @@
             // CategoriesBtn
             // 
             this.CategoriesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.CategoriesBtn, Guna.UI.Animation.DecorationType.None);
             this.CategoriesBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.CategoriesBtn.FlatAppearance.BorderSize = 0;
             this.CategoriesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -345,6 +359,7 @@
             // DashboardBtn
             // 
             this.DashboardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.DashboardBtn, Guna.UI.Animation.DecorationType.None);
             this.DashboardBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.DashboardBtn.FlatAppearance.BorderSize = 0;
             this.DashboardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -371,6 +386,7 @@
             // 
             this.panel12.Controls.Add(this.gunaCirclePictureBox2);
             this.panel12.Controls.Add(this.Label1);
+            this.gunaTransition1.SetDecoration(this.panel12, Guna.UI.Animation.DecorationType.None);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
@@ -380,6 +396,7 @@
             // gunaCirclePictureBox2
             // 
             this.gunaCirclePictureBox2.BaseColor = System.Drawing.Color.White;
+            this.gunaTransition1.SetDecoration(this.gunaCirclePictureBox2, Guna.UI.Animation.DecorationType.None);
             this.gunaCirclePictureBox2.Image = global::sims.Properties.Resources.logo_soothing_cafe;
             this.gunaCirclePictureBox2.Location = new System.Drawing.Point(29, 9);
             this.gunaCirclePictureBox2.Name = "gunaCirclePictureBox2";
@@ -393,6 +410,7 @@
             // 
             this.Label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Label1.AutoSize = true;
+            this.gunaTransition1.SetDecoration(this.Label1, Guna.UI.Animation.DecorationType.None);
             this.Label1.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.Black;
             this.Label1.Location = new System.Drawing.Point(106, 23);
@@ -406,6 +424,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(196)))), ((int)(((byte)(125)))));
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel5);
+            this.gunaTransition1.SetDecoration(this.panel2, Guna.UI.Animation.DecorationType.None);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(299, 0);
             this.panel2.Name = "panel2";
@@ -417,6 +436,7 @@
             this.panel3.Controls.Add(this.TimeLbl);
             this.panel3.Controls.Add(this.DateLbl);
             this.panel3.Controls.Add(this.pictureBox1);
+            this.gunaTransition1.SetDecoration(this.panel3, Guna.UI.Animation.DecorationType.None);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(812, 0);
             this.panel3.Name = "panel3";
@@ -426,6 +446,7 @@
             // TimeLbl
             // 
             this.TimeLbl.AutoSize = true;
+            this.gunaTransition1.SetDecoration(this.TimeLbl, Guna.UI.Animation.DecorationType.None);
             this.TimeLbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimeLbl.ForeColor = System.Drawing.Color.White;
             this.TimeLbl.Location = new System.Drawing.Point(43, 41);
@@ -438,6 +459,7 @@
             // DateLbl
             // 
             this.DateLbl.AutoSize = true;
+            this.gunaTransition1.SetDecoration(this.DateLbl, Guna.UI.Animation.DecorationType.None);
             this.DateLbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateLbl.ForeColor = System.Drawing.Color.White;
             this.DateLbl.Location = new System.Drawing.Point(43, 13);
@@ -450,6 +472,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaTransition1.SetDecoration(this.pictureBox1, Guna.UI.Animation.DecorationType.None);
             this.pictureBox1.Image = global::sims.Properties.Resources.bell__1____white;
             this.pictureBox1.Location = new System.Drawing.Point(255, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -462,6 +485,7 @@
             // 
             this.panel5.Controls.Add(this.Label3);
             this.panel5.Controls.Add(this.greetingNameTxt);
+            this.gunaTransition1.SetDecoration(this.panel5, Guna.UI.Animation.DecorationType.None);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
@@ -471,6 +495,7 @@
             // Label3
             // 
             this.Label3.AutoSize = true;
+            this.gunaTransition1.SetDecoration(this.Label3, Guna.UI.Animation.DecorationType.None);
             this.Label3.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label3.ForeColor = System.Drawing.Color.White;
             this.Label3.Location = new System.Drawing.Point(4, 38);
@@ -482,6 +507,7 @@
             // greetingNameTxt
             // 
             this.greetingNameTxt.AutoSize = true;
+            this.gunaTransition1.SetDecoration(this.greetingNameTxt, Guna.UI.Animation.DecorationType.None);
             this.greetingNameTxt.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.greetingNameTxt.ForeColor = System.Drawing.Color.White;
             this.greetingNameTxt.Location = new System.Drawing.Point(4, 4);
@@ -492,6 +518,7 @@
             // 
             // DashboardPanel
             // 
+            this.gunaTransition1.SetDecoration(this.DashboardPanel, Guna.UI.Animation.DecorationType.None);
             this.DashboardPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DashboardPanel.Location = new System.Drawing.Point(299, 79);
             this.DashboardPanel.Name = "DashboardPanel";
@@ -502,9 +529,27 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // TimerTransition
+            // gunaTransition1
             // 
-            this.TimerTransition.Tick += new System.EventHandler(this.TimerTransition_Tick);
+            this.gunaTransition1.AnimationType = Guna.UI.Animation.AnimationType.Transparent;
+            this.gunaTransition1.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 1F;
+            this.gunaTransition1.DefaultAnimation = animation1;
+            this.gunaTransition1.Interval = 5;
             // 
             // DashboardOwner
             // 
@@ -515,6 +560,7 @@
             this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.PanelMenu);
+            this.gunaTransition1.SetDecoration(this, Guna.UI.Animation.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DashboardOwner";
@@ -567,7 +613,7 @@
         private System.Windows.Forms.Timer timer1;
         internal Guna.UI.WinForms.GunaLabel DateLbl;
         internal Guna.UI.WinForms.GunaLabel TimeLbl;
-        private System.Windows.Forms.Timer TimerTransition;
+        private Guna.UI.WinForms.GunaTransition gunaTransition1;
     }
 }
 

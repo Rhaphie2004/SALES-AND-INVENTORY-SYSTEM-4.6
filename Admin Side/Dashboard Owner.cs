@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using Guna.UI.WinForms;
+using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
 using sims.Admin_Side;
 using sims.Admin_Side.Category;
@@ -13,6 +14,7 @@ using sims.Admin_Side.Users;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static sims.Staff_Side.Dashboard_Staff;
 
 namespace sims
 {
@@ -30,7 +32,7 @@ namespace sims
         private Inventory_Reportt inventoryReportInstance;
         private Product_Saless productSalesInstance;
         private Product_Sales manageSalesReportInstance;
-        private Manage_User_Staff manageUserStaffInstance;
+        private User_Staff manageUserStaffInstance;
         private Database_Backup databaseBackupInstance;
         private readonly Add_Stock addStockInstance;
 
@@ -39,19 +41,9 @@ namespace sims
             get { return pictureBox1; }
         }
 
-        // Add these enum and variables at the class level
-        public enum TransitionEffect
-        {
-            Slide,
-            Fade,
-            Zoom,
-            None
-        }
-
+        // Transition variables
         private Timer transitionTimer;
-        private Control transitionControl;
-        private int transitionProgress = 0;
-        private TransitionEffect currentEffect = TransitionEffect.Slide;
+        private Form activeForm;
 
         public DashboardOwner()
         {
@@ -82,15 +74,36 @@ namespace sims
             inventoryReportInstance = new Inventory_Reportt(manageStockInstance);
             productSalesInstance = new Product_Saless(dashboardInventoryInstance, manageStockInstance, addStockInstance, inventoryReportInstance, this, manageSalesReportInstance);
             manageSalesReportInstance = new Product_Sales();
-            manageUserStaffInstance = new Manage_User_Staff();
+            manageUserStaffInstance = new User_Staff();
             databaseBackupInstance = new Database_Backup();
 
-            LoadView(dashboardInventoryInstance);
+            LoadForm(dashboardInventoryInstance);
 
             ActivateButton(DashboardBtn, Color.White);
 
             ShowUsernameWithGreeting();
         }
+
+        private void OpenWithGunaTransition(Form formToOpen)
+        {
+            if (activeForm != null)
+            {
+                gunaTransition1.HideSync(activeForm); // optional: smoothly hide old form
+                activeForm.Hide();
+            }
+
+            activeForm = formToOpen;
+            formToOpen.TopLevel = false;
+            formToOpen.FormBorderStyle = FormBorderStyle.None;
+            formToOpen.Dock = DockStyle.Fill;
+
+            if (!DashboardPanel.Controls.Contains(formToOpen))
+                DashboardPanel.Controls.Add(formToOpen);
+
+            formToOpen.BringToFront();
+            gunaTransition1.ShowSync(formToOpen); // this applies the transition
+        }
+
 
         private void ShowUsernameWithGreeting()
         {
@@ -124,40 +137,26 @@ namespace sims
             }
         }
 
-        private void LoadView(object viewInstance)
+        private void LoadForm(Form formInstance)
         {
-            foreach (Control control in DashboardPanel.Controls)
+            if (activeForm != null)
             {
-                control.Visible = false;
+                activeForm.Hide();
             }
 
-            if (viewInstance is UserControl uc)
+            activeForm = formInstance;
+            formInstance.TopLevel = false;
+            formInstance.FormBorderStyle = FormBorderStyle.None;
+            formInstance.Dock = DockStyle.Fill;
+            formInstance.MouseDown += (s, e) => ((Form)s).Capture = false;
+
+            if (!DashboardPanel.Controls.Contains(formInstance))
             {
-                if (!DashboardPanel.Controls.Contains(uc))
-                {
-                    uc.Dock = DockStyle.Fill;
-                    DashboardPanel.Controls.Add(uc);
-                }
-                uc.Visible = true;
-                uc.BringToFront();
+                DashboardPanel.Controls.Add(formInstance);
             }
-            else if (viewInstance is Form form)
-            {
-                if (!DashboardPanel.Controls.Contains(form))
-                {
-                    form.TopLevel = false;
-                    form.FormBorderStyle = FormBorderStyle.None;
-                    form.Dock = DockStyle.Fill;
-                    DashboardPanel.Controls.Add(form);
-                }
-                form.MouseDown += (s, e) => ((Form)s).Capture = false;
-                form.Visible = true;
-                form.BringToFront();
-            }
-            else
-            {
-                throw new InvalidOperationException("Unsupported type. Only UserControl and Form are allowed.");
-            }
+
+            formInstance.Show();
+            formInstance.BringToFront();
         }
 
         private void customizeDesign()
@@ -276,19 +275,14 @@ namespace sims
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.White);
-            foreach (Control control in DashboardPanel.Controls)
-            {
-                control.Visible = false;
-            }
-            dashboardInventoryInstance.Visible = true;
-            dashboardInventoryInstance.BringToFront();
             customizeDesign();
+            OpenWithGunaTransition(dashboardInventoryInstance);
         }
 
         private void CategoriesBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpeninPanel(manageCategoryInstance, TransitionEffect.None);
+            OpenWithGunaTransition(manageCategoryInstance);
             customizeDesign();
         }
 
@@ -300,14 +294,14 @@ namespace sims
         private void ItemsBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpeninPanel(manageItemsInstance, TransitionEffect.None);
+            OpenWithGunaTransition(manageItemsInstance);
 
         }
 
         private void StocksBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpeninPanel(manageStockInstance, TransitionEffect.None);
+            OpenWithGunaTransition(manageStockInstance);
 
         }
 
@@ -325,26 +319,26 @@ namespace sims
         private void productSalesBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpeninPanel(productSalesInstance, TransitionEffect.None);
+            OpenWithGunaTransition(productSalesInstance);
         }
 
         private void salesReportBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpeninPanel(manageSalesReportInstance, TransitionEffect.None);
+            OpenWithGunaTransition(manageSalesReportInstance);
         }
 
         private void UserBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpeninPanel(manageUserStaffInstance, TransitionEffect.None);
+            OpenWithGunaTransition(manageUserStaffInstance);
             customizeDesign();
         }
 
         private void backupDbBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpeninPanel(databaseBackupInstance, TransitionEffect.None);
+            OpenWithGunaTransition(databaseBackupInstance);
         }
 
         private void SignoutBtn_Click(object sender, EventArgs e)
@@ -366,109 +360,6 @@ namespace sims
         {
             TimeLbl.Text = DateTime.Now.ToString("h:mm:ss tt");
 
-        }
-
-        private void TimerTransition_Tick(object sender, EventArgs e)
-        {
-            const int TRANSITION_STEPS = 20; // Total steps for the transition
-
-            // Increase progress
-            transitionProgress++;
-
-            // Calculate percent complete (0.0 to 1.0)
-            float percent = (float)transitionProgress / TRANSITION_STEPS;
-
-            // Apply appropriate effect
-            switch (currentEffect)
-            {
-                case TransitionEffect.Slide:
-                    // Move from -width (off left) to 0 (normal position)
-                    int targetX = 0;
-                    int startX = -transitionControl.Width;
-                    int distance = Math.Abs(startX);
-                    int currentX = startX + (int)(distance * percent);
-
-                    transitionControl.Left = currentX;
-
-                    // Check if done
-                    if (percent >= 1.0)
-                    {
-                        transitionControl.Left = targetX;
-                        transitionControl.Dock = DockStyle.Fill;  // Restore dock
-                        transitionTimer.Stop();
-                        transitionTimer.Dispose();
-                        transitionTimer = null;
-                    }
-                    break;
-
-                case TransitionEffect.Fade:
-                    // Apply opacity
-                    if (transitionControl is Form form)
-                    {
-                        form.Opacity = percent;
-
-                        // Check if done
-                        if (percent >= 1.0)
-                        {
-                            form.Opacity = 1.0;
-                            transitionControl.Dock = DockStyle.Fill;  // Restore dock
-                            transitionTimer.Stop();
-                            transitionTimer.Dispose();
-                            transitionTimer = null;
-                        }
-                    }
-                    else
-                    {
-                        // For UserControl, update BackColor alpha
-                        Color originalColor = (Color)transitionControl.Tag;
-                        int alpha = (int)(255 * percent);
-                        transitionControl.BackColor = Color.FromArgb(alpha, originalColor.R, originalColor.G, originalColor.B);
-
-                        // Check if done
-                        if (percent >= 1.0)
-                        {
-                            transitionControl.BackColor = originalColor;
-                            transitionControl.Dock = DockStyle.Fill;  // Restore dock
-                            transitionTimer.Stop();
-                            transitionTimer.Dispose();
-                            transitionTimer = null;
-                        }
-                    }
-                    break;
-
-                case TransitionEffect.Zoom:
-                    // Get original size
-                    Size originalSize = (Size)transitionControl.Tag;
-
-                    // Calculate new size
-                    int newWidth = (int)(originalSize.Width * percent);
-                    int newHeight = (int)(originalSize.Height * percent);
-
-                    // Make sure we don't go to zero
-                    newWidth = Math.Max(newWidth, 1);
-                    newHeight = Math.Max(newHeight, 1);
-
-                    // Set new size
-                    transitionControl.Size = new Size(newWidth, newHeight);
-
-                    // Center the control
-                    transitionControl.Location = new Point(
-                        (DashboardPanel.Width - newWidth) / 2,
-                        (DashboardPanel.Height - newHeight) / 2
-                    );
-
-                    // Check if done
-                    if (percent >= 1.0)
-                    {
-                        transitionControl.Size = originalSize;
-                        transitionControl.Location = new Point(0, 0);
-                        transitionControl.Dock = DockStyle.Fill;  // Restore dock
-                        transitionTimer.Stop();
-                        transitionTimer.Dispose();
-                        transitionTimer = null;
-                    }
-                    break;
-            }
         }
     }
 }
