@@ -339,8 +339,6 @@ namespace sims.Admin_Side.Stocks
             }
         }
 
-
-
         private System.Drawing.Image ResizeImage(System.Drawing.Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);
