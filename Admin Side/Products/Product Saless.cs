@@ -108,7 +108,7 @@ namespace sims.Admin_Side.Sales
                 string category = productDetails.category; // Retrieve the category
 
                 // Pass both productID and category to the Sales_Form
-                Sales_Form detailsForm = new Sales_Form(productID, _stock, _inventoryDashboard, category, _sales);
+                Sales_Form detailsForm = new Sales_Form(productID, _stock, _inventoryDashboard, category);
                 detailsForm.Show();
             }
         }

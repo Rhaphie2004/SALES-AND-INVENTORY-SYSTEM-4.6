@@ -19,10 +19,10 @@ namespace sims.Admin_Side.Sales
         private string _category; // Stores the product category
         private Manage_Stockk _stock; // Reference to the stock management module
         private Old_Inventory_Dashboard _inventoryDashboard; // Reference to the inventory dashboard
-        private Product_Sales _sales; // Reference to the sales report module
+        //private Sales_Report _sales; // Reference to the sales report module
 
         // Constructor for Sales_Form
-        public Sales_Form(string productID, Manage_Stockk stock, Old_Inventory_Dashboard inventoryDashboard, string category, Product_Sales sales)
+        public Sales_Form(string productID, Manage_Stockk stock, Old_Inventory_Dashboard inventoryDashboard, string category /*(Product_Sales sales*/)
         {
             InitializeComponent(); // Initialize UI components
             _stock = stock; // Assign stock management reference
@@ -34,7 +34,7 @@ namespace sims.Admin_Side.Sales
             productPriceTxt.TextChanged += (s, e) => CalculateTotalProductSale();
 
             _category = category; // Store category information
-            _sales = sales; // Assign sales reference
+            //_sales = sales; // Assign sales reference
         }
 
         // Method to preview stock availability
@@ -96,13 +96,13 @@ namespace sims.Admin_Side.Sales
         }
 
         // Method to preview coffee sales
-        private void previewSalesCoffee()
-        {
-            if (_sales != null)
-            {
-                _sales.CoffeeSales(); // Calls method to display coffee sales report
-            }
-        }
+        //private void previewSalesCoffee()
+        //{
+        //    if (_sales != null)
+        //    {
+        //        _sales.CoffeeSales(); // Calls method to display coffee sales report
+        //    }
+        //}
 
 
         private void Sales_Form_Load(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace sims.Admin_Side.Sales
             DateLbl.Text = DateTime.Now.ToString("ddd, d MMMM yyyy");
             CalculateTotalProductSale();
             LoadProductDetails();
-            previewSalesCoffee();
+            //previewSalesCoffee();
         }
 
         // Method to load product details based on category
@@ -636,7 +636,7 @@ namespace sims.Admin_Side.Sales
                     stock2Cmb.SelectedIndex = -1;
                     this.Hide();
                     previewProductsDashboard();
-                    previewSalesCoffee();
+                    //previewSalesCoffee();
                     previewDailySalesChart(_category);
                     previewMonthlySalesChart(_category);
                 }
@@ -882,7 +882,7 @@ namespace sims.Admin_Side.Sales
                     TotalSales(tableName, _category);
                     previewDailySalesChart(_category);
                     previewMonthlySalesChart(_category);
-                    previewSalesCoffee();
+                    //previewSalesCoffee();
                 }
 
                 else
