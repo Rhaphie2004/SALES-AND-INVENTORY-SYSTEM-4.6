@@ -23,7 +23,7 @@ namespace sims.Messages_Boxes.Forgot_Password_msgbox
 
         private void continueBtn_Click(object sender, EventArgs e)
         {
-            new Forgot_Password.New_Password(username).Show();
+            new Forgot_Password.Enter_OTP().Show();
             this.Hide();
         }
     }

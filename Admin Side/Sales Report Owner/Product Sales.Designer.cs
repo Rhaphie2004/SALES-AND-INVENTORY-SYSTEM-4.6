@@ -40,8 +40,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.CoffeeSales1 = new sims.CoffeeSales();
-            this.CoffeeSalesViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -50,6 +48,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CoffeeSalesViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.CoffeeSales1 = new sims.CoffeeSales();
             this.panel4.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -153,27 +153,13 @@
             this.panel2.Size = new System.Drawing.Size(1134, 550);
             this.panel2.TabIndex = 1;
             // 
-            // CoffeeSalesViewer
-            // 
-            this.CoffeeSalesViewer.ActiveViewIndex = 0;
-            this.CoffeeSalesViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CoffeeSalesViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.CoffeeSalesViewer.DisplayStatusBar = false;
-            this.CoffeeSalesViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CoffeeSalesViewer.Location = new System.Drawing.Point(0, 0);
-            this.CoffeeSalesViewer.Name = "CoffeeSalesViewer";
-            this.CoffeeSalesViewer.ReportSource = this.CoffeeSales1;
-            this.CoffeeSalesViewer.Size = new System.Drawing.Size(1134, 550);
-            this.CoffeeSalesViewer.TabIndex = 1;
-            this.CoffeeSalesViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.CoffeeSalesViewer);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1134, 550);
+            this.panel5.Size = new System.Drawing.Size(1134, 560);
             this.panel5.TabIndex = 39;
             // 
             // tabPage1
@@ -181,7 +167,7 @@
             this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1134, 550);
+            this.tabPage1.Size = new System.Drawing.Size(1134, 560);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Coffee Sales";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -199,7 +185,7 @@
             this.tabControl1.Location = new System.Drawing.Point(16, 8);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1142, 586);
+            this.tabControl1.Size = new System.Drawing.Size(1142, 596);
             this.tabControl1.TabIndex = 39;
             // 
             // tabPage2
@@ -224,10 +210,10 @@
             this.gunaGroupBox2.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaGroupBox2.LineColor = System.Drawing.Color.White;
             this.gunaGroupBox2.LineTop = 0;
-            this.gunaGroupBox2.Location = new System.Drawing.Point(12, 76);
+            this.gunaGroupBox2.Location = new System.Drawing.Point(12, 71);
             this.gunaGroupBox2.Name = "gunaGroupBox2";
             this.gunaGroupBox2.Radius = 10;
-            this.gunaGroupBox2.Size = new System.Drawing.Size(1171, 607);
+            this.gunaGroupBox2.Size = new System.Drawing.Size(1171, 617);
             this.gunaGroupBox2.TabIndex = 56;
             this.gunaGroupBox2.TextLocation = new System.Drawing.Point(10, 15);
             this.gunaGroupBox2.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.AntiAlias;
@@ -261,11 +247,25 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.gunaElipsePanel2);
-            this.panel1.Location = new System.Drawing.Point(12, 14);
+            this.panel1.Location = new System.Drawing.Point(12, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1170, 53);
             this.panel1.TabIndex = 55;
+            // 
+            // CoffeeSalesViewer
+            // 
+            this.CoffeeSalesViewer.ActiveViewIndex = 0;
+            this.CoffeeSalesViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CoffeeSalesViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CoffeeSalesViewer.DisplayStatusBar = false;
+            this.CoffeeSalesViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CoffeeSalesViewer.Location = new System.Drawing.Point(0, 0);
+            this.CoffeeSalesViewer.Name = "CoffeeSalesViewer";
+            this.CoffeeSalesViewer.ReportSource = this.CoffeeSales1;
+            this.CoffeeSalesViewer.Size = new System.Drawing.Size(1134, 560);
+            this.CoffeeSalesViewer.TabIndex = 1;
+            this.CoffeeSalesViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // Product_Sales
             // 

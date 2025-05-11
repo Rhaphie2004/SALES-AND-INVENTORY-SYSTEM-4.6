@@ -30,7 +30,7 @@ namespace sims
                 }
             }
 
-            Application.Run(new DashboardOwner());
+            Application.Run(new Login_Form());
         }
 
         // Add this method inside the Program class
