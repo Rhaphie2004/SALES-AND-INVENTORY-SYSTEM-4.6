@@ -232,19 +232,31 @@ namespace sims.Staff_Side.Stocks
 
             string itemID = itemIDTxt.Text.Trim();
             string itemName = selectItemNameCmb.SelectedItem?.ToString() ?? string.Empty;
-            string stockIn = itemQuantityTxt.Text.Trim();
+            string stockInText = itemQuantityTxt.Text.Trim();
             string unitType = unitTypeCmb.SelectedItem?.ToString() ?? string.Empty;
             string dateAdded = dateAddedDtp.Value.ToString("yyyy-MM-dd");
-            string itemPrice = itemPriceTxt.Text.Trim();
+            string itemPriceText = itemPriceTxt.Text.Trim();
             decimal itemTotal = itemTotalTxt.Tag is decimal value ? value : 0;
             System.Drawing.Image itemImage = itemImagePic.Image;
 
-            if (string.IsNullOrEmpty(itemName) || string.IsNullOrEmpty(stockIn) || string.IsNullOrEmpty(unitType) || string.IsNullOrEmpty(itemPrice))
+            if (string.IsNullOrEmpty(itemName) || string.IsNullOrEmpty(stockInText) || string.IsNullOrEmpty(unitType) || string.IsNullOrEmpty(itemPriceText))
             {
                 new Messages_Boxes.Field_Required().Show();
                 return;
             }
 
+            // Validate stock and price as non-negative numbers
+            if (!int.TryParse(stockInText, out int stockIn) || stockIn < 0)
+            {
+                MessageBox.Show("Stock quantity must be a non-negative whole number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(itemPriceText, out decimal itemPrice) || itemPrice < 0)
+            {
+                MessageBox.Show("Item price must be a non-negative number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             try
             {
@@ -255,10 +267,10 @@ namespace sims.Staff_Side.Stocks
 
                 cmd.Parameters.AddWithValue("@Item_ID", itemID);
                 cmd.Parameters.AddWithValue("@Item_Name", itemName);
-                cmd.Parameters.AddWithValue("@Stock_In", int.TryParse(stockIn, out var stock) ? stock : 0); // Convert to integer
+                cmd.Parameters.AddWithValue("@Stock_In", int.TryParse(stockInText, out var stock) ? stock : 0); // Convert to integer
                 cmd.Parameters.AddWithValue("@Unit_Type", unitType);
                 cmd.Parameters.AddWithValue("@Date_Added", dateAdded);
-                cmd.Parameters.AddWithValue("@Item_Price", decimal.TryParse(itemPrice, out var price) ? price : 0); // Convert to decimal
+                cmd.Parameters.AddWithValue("@Item_Price", decimal.TryParse(itemPriceText, out var price) ? price : 0); // Convert to decimal
                 cmd.Parameters.AddWithValue("@Item_Total", itemTotal);
 
                 byte[] imageBytes = itemImage != null ? ImageToByteArray(ResizeImage(itemImage, 300, 300)) : null;
