@@ -15,6 +15,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using static sims.Staff_Side.Dashboard_Staff;
+using Guna.UI2.AnimatorNS;
 
 namespace sims
 {
@@ -36,14 +37,20 @@ namespace sims
         private Database_Backup databaseBackupInstance;
         private readonly Add_Stock addStockInstance;
 
+        private Form activeForm;
+        private Guna2Transition transition;
+
         public PictureBox bellIcon
         {
             get { return pictureBox1; }
         }
 
-        // Transition variables
-        private Timer transitionTimer;
-        private Form activeForm;
+        private void InitializeTransition()
+        {
+            transition = new Guna2Transition();
+            transition.AnimationType = AnimationType.Leaf; // You can choose different animation types
+            transition.Interval = 15; // Control animation speed
+        }
 
         public DashboardOwner()
         {
@@ -83,27 +90,6 @@ namespace sims
 
             ShowUsernameWithGreeting();
         }
-
-        private void OpenWithGunaTransition(Form formToOpen)
-        {
-            if (activeForm != null)
-            {
-                gunaTransition1.HideSync(activeForm); // optional: smoothly hide old form
-                activeForm.Hide();
-            }
-
-            activeForm = formToOpen;
-            formToOpen.TopLevel = false;
-            formToOpen.FormBorderStyle = FormBorderStyle.None;
-            formToOpen.Dock = DockStyle.Fill;
-
-            if (!DashboardPanel.Controls.Contains(formToOpen))
-                DashboardPanel.Controls.Add(formToOpen);
-
-            formToOpen.BringToFront();
-            gunaTransition1.ShowSync(formToOpen); // this applies the transition
-        }
-
 
         private void ShowUsernameWithGreeting()
         {
@@ -207,35 +193,13 @@ namespace sims
             leftBorderBtn.BringToFront();
         }
 
-        // Instead of modifying the OpeninPanel method to remove effects, let's simply make it always use TransitionEffect.None
-        private void OpeninPanel(object formOpen, TransitionEffect effect = TransitionEffect.None)
+        private void OpeninPanel(object formOpen)
         {
-            // Stop any ongoing transition
-            if (transitionTimer != null && transitionTimer.Enabled)
-            {
-                transitionTimer.Stop();
-                transitionTimer.Dispose();
-            }
-
-            // Hide all controls
             foreach (Control control in DashboardPanel.Controls)
             {
                 control.Visible = false;
             }
-
-            Control toShow = null;
-
-            if (formOpen is UserControl uc)
-            {
-                if (!DashboardPanel.Controls.Contains(uc))
-                {
-                    uc.Dock = DockStyle.Fill;
-                    DashboardPanel.Controls.Add(uc);
-                    DashboardPanel.Tag = uc;
-                }
-                toShow = uc;
-            }
-            else if (formOpen is Form dh)
+            if (formOpen is Form dh)
             {
                 if (!DashboardPanel.Controls.Contains(dh))
                 {
@@ -245,16 +209,9 @@ namespace sims
                     DashboardPanel.Controls.Add(dh);
                     DashboardPanel.Tag = dh;
                 }
-                toShow = dh;
-            }
 
-            if (toShow != null)
-            {
-                // Set location and make visible
-                toShow.Location = new Point(0, 0);
-                toShow.Visible = true;
-                toShow.BringToFront();
-                toShow.Dock = DockStyle.Fill;
+                dh.Visible = true;
+                dh.BringToFront();
             }
         }
 
@@ -276,14 +233,14 @@ namespace sims
         {
             ActivateButton(sender, Color.White);
             customizeDesign();
-            OpenWithGunaTransition(dashboardInventoryInstance);
+            OpeninPanel(dashboardInventoryInstance);
         }
 
         private void CategoriesBtn_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpenWithGunaTransition(manageCategoryInstance);
-            customizeDesign();
+            //ActivateButton(sender, Color.FromArgb(255, 255, 255));
+            //OpeninPanel(manageCategoryInstance);
+            //customizeDesign();
         }
 
         private void inventoryBtn_Click(object sender, EventArgs e)
@@ -294,21 +251,15 @@ namespace sims
         private void ItemsBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpenWithGunaTransition(manageItemsInstance);
+            OpeninPanel(manageItemsInstance);
 
         }
 
         private void StocksBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpenWithGunaTransition(manageStockInstance);
+            OpeninPanel(manageStockInstance);
 
-        }
-
-        private void inventoryReport_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            //OpeninPanel(inventoryReportInstance);
         }
 
         private void SalesBtn_Click(object sender, EventArgs e)
@@ -319,26 +270,26 @@ namespace sims
         private void productSalesBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpenWithGunaTransition(productSalesInstance);
+            OpeninPanel(productSalesInstance);
         }
 
         private void salesReportBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpenWithGunaTransition(manageSalesReportInstance);
+            OpeninPanel(manageSalesReportInstance);
         }
 
         private void UserBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpenWithGunaTransition(manageUserStaffInstance);
+            OpeninPanel(manageUserStaffInstance);
             customizeDesign();
         }
 
         private void backupDbBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 255, 255));
-            OpenWithGunaTransition(databaseBackupInstance);
+            OpeninPanel(databaseBackupInstance);
         }
 
         private void SignoutBtn_Click(object sender, EventArgs e)
