@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Old_Inventory_Dashboard));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -41,8 +41,6 @@
             this.gunaGroupBox9 = new Guna.UI.WinForms.GunaGroupBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.activityLogsDgv = new Guna.UI.WinForms.GunaDataGridView();
-            this.Staff_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_Logged_In = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.gunaGroupBox7 = new Guna.UI.WinForms.GunaGroupBox();
@@ -80,6 +78,10 @@
             this.chartMonthlyLbl = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.MonthlySalesChart = new LiveCharts.WinForms.PieChart();
+            this.Staff_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Logged_In = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.gunaGroupBox5.SuspendLayout();
@@ -227,34 +229,36 @@
             // 
             this.activityLogsDgv.AllowUserToAddRows = false;
             this.activityLogsDgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.activityLogsDgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.activityLogsDgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.activityLogsDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.activityLogsDgv.BackgroundColor = System.Drawing.Color.White;
             this.activityLogsDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.activityLogsDgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.activityLogsDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(178)))), ((int)(((byte)(84)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(157)))), ((int)(((byte)(49)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.activityLogsDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(178)))), ((int)(((byte)(84)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(157)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.activityLogsDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.activityLogsDgv.ColumnHeadersHeight = 40;
             this.activityLogsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.activityLogsDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Staff_Name,
+            this.Role,
+            this.Activity,
             this.Date_Logged_In});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.activityLogsDgv.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.activityLogsDgv.DefaultCellStyle = dataGridViewCellStyle3;
             this.activityLogsDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.activityLogsDgv.EnableHeadersVisualStyles = false;
             this.activityLogsDgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -289,20 +293,6 @@
             this.activityLogsDgv.ThemeStyle.RowsStyle.Height = 35;
             this.activityLogsDgv.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.activityLogsDgv.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // Staff_Name
-            // 
-            this.Staff_Name.DataPropertyName = "Staff_Name";
-            this.Staff_Name.HeaderText = "Staff Name";
-            this.Staff_Name.Name = "Staff_Name";
-            this.Staff_Name.ReadOnly = true;
-            // 
-            // Date_Logged_In
-            // 
-            this.Date_Logged_In.DataPropertyName = "Date_Logged_In";
-            this.Date_Logged_In.HeaderText = "Date Logged In";
-            this.Date_Logged_In.Name = "Date_Logged_In";
-            this.Date_Logged_In.ReadOnly = true;
             // 
             // tableLayoutPanel1
             // 
@@ -748,6 +738,34 @@
             this.MonthlySalesChart.TabIndex = 2;
             this.MonthlySalesChart.Text = "pieChart2";
             // 
+            // Staff_Name
+            // 
+            this.Staff_Name.DataPropertyName = "Staff_Name";
+            this.Staff_Name.HeaderText = "Staff Name";
+            this.Staff_Name.Name = "Staff_Name";
+            this.Staff_Name.ReadOnly = true;
+            // 
+            // Role
+            // 
+            this.Role.DataPropertyName = "Role";
+            this.Role.HeaderText = "Role";
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
+            // 
+            // Activity
+            // 
+            this.Activity.DataPropertyName = "Activity";
+            this.Activity.HeaderText = "Activity";
+            this.Activity.Name = "Activity";
+            this.Activity.ReadOnly = true;
+            // 
+            // Date_Logged_In
+            // 
+            this.Date_Logged_In.DataPropertyName = "Date_Logged_In";
+            this.Date_Logged_In.HeaderText = "Date Logged In";
+            this.Date_Logged_In.Name = "Date_Logged_In";
+            this.Date_Logged_In.ReadOnly = true;
+            // 
             // Old_Inventory_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -826,8 +844,6 @@
         private Guna.UI.WinForms.GunaGroupBox gunaGroupBox9;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         public Guna.UI.WinForms.GunaDataGridView activityLogsDgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Staff_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date_Logged_In;
         private Guna.UI.WinForms.GunaGroupBox gunaGroupBox5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private LiveCharts.WinForms.CartesianChart stockPreviewChart;
@@ -850,5 +866,9 @@
         private System.Windows.Forms.ToolStripMenuItem hotCoffeeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pastriesToolStripMenuItem1;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Staff_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Activity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date_Logged_In;
     }
 }

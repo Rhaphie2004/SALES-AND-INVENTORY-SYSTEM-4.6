@@ -19,10 +19,10 @@ namespace sims.Admin_Side.Sales
         private string _category; // Stores the product category
         private Manage_Stockk _stock; // Reference to the stock management module
         private Old_Inventory_Dashboard _inventoryDashboard; // Reference to the inventory dashboard
-        //private Sales_Report _sales; // Reference to the sales report module
+        private Product_Sales _sales; // Reference to the sales report module
 
         // Constructor for Sales_Form
-        public Sales_Form(string productID, Manage_Stockk stock, Old_Inventory_Dashboard inventoryDashboard, string category /*(Product_Sales sales*/)
+        public Sales_Form(string productID, Manage_Stockk stock, Old_Inventory_Dashboard inventoryDashboard, string category, Product_Sales sales)
         {
             InitializeComponent(); // Initialize UI components
             _stock = stock; // Assign stock management reference
@@ -34,7 +34,7 @@ namespace sims.Admin_Side.Sales
             productPriceTxt.TextChanged += (s, e) => CalculateTotalProductSale();
 
             _category = category; // Store category information
-            //_sales = sales; // Assign sales reference
+            _sales = sales; // Assign sales reference
         }
 
         // Method to preview stock availability
@@ -96,15 +96,37 @@ namespace sims.Admin_Side.Sales
         }
 
         // Method to preview coffee sales
-        //private void previewSalesCoffee()
-        //{
-        //    if (_sales != null)
-        //    {
-        //        _sales.CoffeeSales(); // Calls method to display coffee sales report
-        //    }
-        //}
+        private void previewSalesCoffee()
+        {
+            if (_sales != null)
+            {
+                _sales.CoffeeSales(); // Calls method to display coffee sales report
+            }
+        }
 
+        private void previewSalesNonCoffee()
+        {
+            if (_sales != null)
+            {
+                _sales.NonCoffeeSales(); // Calls method to display coffee sales report
+            }
+        }
 
+        private void previewSalesHotCoffee()
+        {
+            if (_sales != null)
+            {
+                _sales.HotCoffeeSales(); // Calls method to display coffee sales report
+            }
+        }
+
+        private void previewSalesPastries()
+        {
+            if (_sales != null)
+            {
+                _sales.PastriesSales(); // Calls method to display coffee sales report
+            }
+        }
         private void Sales_Form_Load(object sender, EventArgs e)
         {
             LoadProductDetails(_productID);
@@ -134,7 +156,10 @@ namespace sims.Admin_Side.Sales
             DateLbl.Text = DateTime.Now.ToString("ddd, d MMMM yyyy");
             CalculateTotalProductSale();
             LoadProductDetails();
-            //previewSalesCoffee();
+            previewSalesCoffee();
+            previewSalesNonCoffee();
+            previewSalesHotCoffee();
+            previewSalesPastries();
         }
 
         // Method to load product details based on category
@@ -620,7 +645,7 @@ namespace sims.Admin_Side.Sales
                         previewMonthlySalesChart(_category);
                     }
 
-                    MessageBox.Show("Product added successfully, and stock quantities updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Product added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Hide the addProductBtn after adding a product sale
                     addProductBtn.Visible = false;
@@ -636,7 +661,10 @@ namespace sims.Admin_Side.Sales
                     stock2Cmb.SelectedIndex = -1;
                     this.Hide();
                     previewProductsDashboard();
-                    //previewSalesCoffee();
+                    previewSalesCoffee();
+                    previewSalesNonCoffee();
+                    previewSalesHotCoffee();
+                    previewSalesPastries();
                     previewDailySalesChart(_category);
                     previewMonthlySalesChart(_category);
                 }
@@ -647,7 +675,7 @@ namespace sims.Admin_Side.Sales
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Already added in the coffee sales table.", "Can't add product", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -681,6 +709,20 @@ namespace sims.Admin_Side.Sales
             ValidateTextBoxForNumbersOnly(quantitySoldTxt);
             quantityStockTxt.Text = quantitySoldTxt.Text;
 
+            if (int.TryParse(quantitySoldTxt.Text, out int quantity))
+            {
+                if (quantity > 500)
+                {
+                    quantity = 500;
+                    quantitySoldTxt.Text = "500";
+                    quantitySoldTxt.SelectionStart = quantitySoldTxt.Text.Length; // Keep cursor at the end
+                }
+                quantityStockTxt.Text = quantity.ToString();
+            }
+            else
+            {
+                quantityStockTxt.Text = string.Empty;
+            }
         }
 
         private void productPriceTxt_TextChanged(object sender, EventArgs e)
@@ -882,7 +924,10 @@ namespace sims.Admin_Side.Sales
                     TotalSales(tableName, _category);
                     previewDailySalesChart(_category);
                     previewMonthlySalesChart(_category);
-                    //previewSalesCoffee();
+                    previewSalesCoffee();
+                    previewSalesNonCoffee();
+                    previewSalesHotCoffee();
+                    previewSalesPastries();
                 }
 
                 else

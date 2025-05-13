@@ -41,6 +41,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.CoffeeSalesViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.CoffeeSales1 = new sims.CoffeeSales();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -48,8 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CoffeeSalesViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CoffeeSales1 = new sims.CoffeeSales();
             this.panel4.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,7 +74,7 @@
             this.HotCoffeeSalesViewer.Location = new System.Drawing.Point(0, 0);
             this.HotCoffeeSalesViewer.Name = "HotCoffeeSalesViewer";
             this.HotCoffeeSalesViewer.ReportSource = this.HotCoffeeSales1;
-            this.HotCoffeeSalesViewer.Size = new System.Drawing.Size(1134, 550);
+            this.HotCoffeeSalesViewer.Size = new System.Drawing.Size(1134, 560);
             this.HotCoffeeSalesViewer.TabIndex = 1;
             this.HotCoffeeSalesViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -88,7 +88,7 @@
             this.NonCoffeeSalesViewer.Location = new System.Drawing.Point(0, 0);
             this.NonCoffeeSalesViewer.Name = "NonCoffeeSalesViewer";
             this.NonCoffeeSalesViewer.ReportSource = this.NonCoffeeSales1;
-            this.NonCoffeeSalesViewer.Size = new System.Drawing.Size(1134, 550);
+            this.NonCoffeeSalesViewer.Size = new System.Drawing.Size(1134, 560);
             this.NonCoffeeSalesViewer.TabIndex = 2;
             this.NonCoffeeSalesViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -98,7 +98,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1134, 550);
+            this.panel4.Size = new System.Drawing.Size(1134, 560);
             this.panel4.TabIndex = 2;
             // 
             // PastriesSalesViewer
@@ -111,7 +111,7 @@
             this.PastriesSalesViewer.Location = new System.Drawing.Point(0, 0);
             this.PastriesSalesViewer.Name = "PastriesSalesViewer";
             this.PastriesSalesViewer.ReportSource = this.Pastries1;
-            this.PastriesSalesViewer.Size = new System.Drawing.Size(1134, 550);
+            this.PastriesSalesViewer.Size = new System.Drawing.Size(1134, 560);
             this.PastriesSalesViewer.TabIndex = 0;
             this.PastriesSalesViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -120,7 +120,7 @@
             this.tabPage4.Controls.Add(this.panel4);
             this.tabPage4.Location = new System.Drawing.Point(4, 32);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1134, 550);
+            this.tabPage4.Size = new System.Drawing.Size(1134, 560);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pastries";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1134, 550);
+            this.panel3.Size = new System.Drawing.Size(1134, 560);
             this.panel3.TabIndex = 2;
             // 
             // tabPage3
@@ -139,7 +139,7 @@
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1134, 550);
+            this.tabPage3.Size = new System.Drawing.Size(1134, 560);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hot Coffee Sales";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1134, 550);
+            this.panel2.Size = new System.Drawing.Size(1134, 560);
             this.panel2.TabIndex = 1;
             // 
             // panel5
@@ -161,6 +161,20 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1134, 560);
             this.panel5.TabIndex = 39;
+            // 
+            // CoffeeSalesViewer
+            // 
+            this.CoffeeSalesViewer.ActiveViewIndex = 0;
+            this.CoffeeSalesViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CoffeeSalesViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CoffeeSalesViewer.DisplayStatusBar = false;
+            this.CoffeeSalesViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CoffeeSalesViewer.Location = new System.Drawing.Point(0, 0);
+            this.CoffeeSalesViewer.Name = "CoffeeSalesViewer";
+            this.CoffeeSalesViewer.ReportSource = this.CoffeeSales1;
+            this.CoffeeSalesViewer.Size = new System.Drawing.Size(1134, 560);
+            this.CoffeeSalesViewer.TabIndex = 1;
+            this.CoffeeSalesViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // tabPage1
             // 
@@ -193,7 +207,7 @@
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1134, 550);
+            this.tabPage2.Size = new System.Drawing.Size(1134, 560);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Non-Coffee Sales";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -253,20 +267,6 @@
             this.panel1.Size = new System.Drawing.Size(1170, 53);
             this.panel1.TabIndex = 55;
             // 
-            // CoffeeSalesViewer
-            // 
-            this.CoffeeSalesViewer.ActiveViewIndex = 0;
-            this.CoffeeSalesViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CoffeeSalesViewer.Cursor = System.Windows.Forms.Cursors.Default;
-            this.CoffeeSalesViewer.DisplayStatusBar = false;
-            this.CoffeeSalesViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CoffeeSalesViewer.Location = new System.Drawing.Point(0, 0);
-            this.CoffeeSalesViewer.Name = "CoffeeSalesViewer";
-            this.CoffeeSalesViewer.ReportSource = this.CoffeeSales1;
-            this.CoffeeSalesViewer.Size = new System.Drawing.Size(1134, 560);
-            this.CoffeeSalesViewer.TabIndex = 1;
-            this.CoffeeSalesViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
             // Product_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +278,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Product_Sales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product_Sales";
             this.Load += new System.EventHandler(this.Product_Sales_Load);
             this.panel4.ResumeLayout(false);

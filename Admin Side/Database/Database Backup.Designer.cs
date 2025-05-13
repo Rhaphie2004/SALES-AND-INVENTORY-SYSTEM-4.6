@@ -230,6 +230,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Database_Backup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database_Backup";
             this.panel2.ResumeLayout(false);
             this.gunaElipsePanel2.ResumeLayout(false);

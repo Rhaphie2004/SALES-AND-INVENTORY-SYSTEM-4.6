@@ -390,6 +390,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Product_Saless";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product_Saless";
             this.Load += new System.EventHandler(this.Product_Saless_Load);
             this.gunaGroupBox2.ResumeLayout(false);

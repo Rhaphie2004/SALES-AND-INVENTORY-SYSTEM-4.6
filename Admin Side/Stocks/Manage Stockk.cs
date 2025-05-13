@@ -56,7 +56,6 @@ namespace sims.Admin_Side.Stocks
         private void Manage_Stockk_Load(object sender, EventArgs e)
         {
             ViewStock();
-            fromDatePicker.Value = DateTime.Now;
         }
 
         public void ViewStock(DateTime? selectedDate = null)

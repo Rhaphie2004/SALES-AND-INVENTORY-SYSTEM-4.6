@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using Guna.UI.WinForms;
 using Guna.UI2.WinForms;
+using Guna.UI2.AnimatorNS;
 using MySql.Data.MySqlClient;
 using sims.Admin_Side;
 using sims.Admin_Side.Category;
@@ -14,8 +15,6 @@ using sims.Admin_Side.Users;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using static sims.Staff_Side.Dashboard_Staff;
-using Guna.UI2.AnimatorNS;
 
 namespace sims
 {
@@ -37,26 +36,17 @@ namespace sims
         private Database_Backup databaseBackupInstance;
         private readonly Add_Stock addStockInstance;
 
-        private Form activeForm;
-        private Guna2Transition transition;
+        private Form activeForm = null;
 
         public PictureBox bellIcon
         {
             get { return pictureBox1; }
         }
 
-        private void InitializeTransition()
-        {
-            transition = new Guna2Transition();
-            transition.AnimationType = AnimationType.Leaf; // You can choose different animation types
-            transition.Interval = 15; // Control animation speed
-        }
-
         public DashboardOwner()
         {
             InitializeComponent();
             ShowUsernameWithGreeting();
-
             customizeDesign();
 
             leftBorderBtn = new GunaPanel
@@ -123,28 +113,6 @@ namespace sims
             }
         }
 
-        private void LoadForm(Form formInstance)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Hide();
-            }
-
-            activeForm = formInstance;
-            formInstance.TopLevel = false;
-            formInstance.FormBorderStyle = FormBorderStyle.None;
-            formInstance.Dock = DockStyle.Fill;
-            formInstance.MouseDown += (s, e) => ((Form)s).Capture = false;
-
-            if (!DashboardPanel.Controls.Contains(formInstance))
-            {
-                DashboardPanel.Controls.Add(formInstance);
-            }
-
-            formInstance.Show();
-            formInstance.BringToFront();
-        }
-
         private void customizeDesign()
         {
             InventoryPanelSubMenu.Visible = false;
@@ -193,6 +161,29 @@ namespace sims
             leftBorderBtn.BringToFront();
         }
 
+        private void LoadForm(Form formInstance)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Hide();
+            }
+
+            activeForm = formInstance;
+            formInstance.TopLevel = false;
+            formInstance.FormBorderStyle = FormBorderStyle.None;
+            formInstance.Dock = DockStyle.Fill;
+            formInstance.MouseDown += (s, e) => ((Form)s).Capture = false;
+
+            if (!DashboardPanel.Controls.Contains(formInstance))
+            {
+                DashboardPanel.Controls.Add(formInstance);
+            }
+
+            formInstance.Show();
+            formInstance.BringToFront();
+        }
+
+        // Modified OpeninPanel method with transition
         private void OpeninPanel(object formOpen)
         {
             foreach (Control control in DashboardPanel.Controls)
