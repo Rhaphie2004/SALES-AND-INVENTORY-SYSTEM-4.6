@@ -1,0 +1,6 @@
+2025-05-11T04:02:18.908173Z 0 [System] [MY-013169] [Server] C:\Users\Rhaphie Costante\Documents\Sales And Inventory\sims\bin\Debug\mysql\bin\mysqld.exe (mysqld 8.0.42) initializing of server in progress as process 8220
+2025-05-11T04:02:18.917659Z 0 [Warning] [MY-010339] [Server] Using pre 5.5 semantics to load error messages from C:\Users\Rhaphie Costante\Documents\Sales And Inventory\sims\bin\Debug\mysql\share\. If this is not intended, refer to the documentation for valid usage of --lc-messages-dir and --language parameters.
+2025-05-11T04:02:18.953617Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-05-11T04:02:20.574291Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-05-11T04:02:23.075517Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: C:\Users\Rhaphie Costante\Documents\Sales And Inventory\sims\bin\Debug\mysql\lib\private\.
+2025-05-11T04:02:23.837533Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
