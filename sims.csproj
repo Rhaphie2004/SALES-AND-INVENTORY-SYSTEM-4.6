@@ -123,18 +123,19 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
@@ -342,17 +343,17 @@
     <Compile Include="Admin Side\Stocks\Manage Stockk.Designer.cs">
       <DependentUpon>Manage Stockk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin Side\Users\Manage User Staff.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Admin Side\Users\Manage User Staff.Designer.cs">
-      <DependentUpon>Manage User Staff.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin Side\Users\New Staff.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin Side\Users\New Staff.Designer.cs">
       <DependentUpon>New Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Side\Users\User Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Side\Users\User Staff.Designer.cs">
+      <DependentUpon>User Staff.cs</DependentUpon>
     </Compile>
     <Compile Include="CoffeeSales.cs">
       <AutoGen>True</AutoGen>
@@ -685,14 +686,14 @@
     <EmbeddedResource Include="Admin Side\Stocks\Manage Stockk.resx">
       <DependentUpon>Manage Stockk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin Side\Users\Manage User Staff.resx">
-      <DependentUpon>Manage User Staff.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin Side\Users\New Staff.resx">
       <DependentUpon>New Staff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin Side\Dashboard Owner.resx">
       <DependentUpon>Dashboard Owner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Side\Users\User Staff.resx">
+      <DependentUpon>User Staff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CoffeeSales.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -834,6 +835,207 @@
       <LastGenOutput>Stocks Report.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App1.config" />
+    <None Include="mysql\data\#ib_16384_0.dblwr" />
+    <None Include="mysql\data\#ib_16384_1.dblwr" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo10_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo11_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo12_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo13_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo14_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo15_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo16_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo17_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo18_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo19_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo20_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo21_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo22_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo23_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo24_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo25_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo26_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo27_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo28_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo29_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo30_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo31_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo32_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo33_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo34_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo35_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo36_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo37_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo6" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo7_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo8_tmp" />
+    <None Include="mysql\data\#innodb_redo\#ib_redo9_tmp" />
+    <None Include="mysql\data\#innodb_temp\temp_1.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_10.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_2.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_3.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_4.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_5.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_6.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_7.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_8.ibt" />
+    <None Include="mysql\data\#innodb_temp\temp_9.ibt" />
+    <None Include="mysql\data\ASPIRE-A515-56.err" />
+    <None Include="mysql\data\ASPIRE-A515-56.pid" />
+    <None Include="mysql\data\auto.cnf" />
+    <None Include="mysql\data\binlog.000001" />
+    <None Include="mysql\data\binlog.000002" />
+    <None Include="mysql\data\binlog.index" />
+    <None Include="mysql\data\ca-key.pem" />
+    <None Include="mysql\data\ca.pem" />
+    <None Include="mysql\data\client-cert.pem" />
+    <None Include="mysql\data\client-key.pem" />
+    <None Include="mysql\data\ibdata1" />
+    <None Include="mysql\data\ibtmp1" />
+    <None Include="mysql\data\ib_buffer_pool" />
+    <None Include="mysql\data\mysql.ibd" />
+    <None Include="mysql\data\mysql\general_log.CSM" />
+    <None Include="mysql\data\mysql\general_log.CSV" />
+    <None Include="mysql\data\mysql\general_log_213.sdi" />
+    <None Include="mysql\data\mysql\slow_log.CSM" />
+    <None Include="mysql\data\mysql\slow_log.CSV" />
+    <None Include="mysql\data\mysql\slow_log_214.sdi" />
+    <None Include="mysql\data\performance_schema\accounts_145.sdi" />
+    <None Include="mysql\data\performance_schema\binary_log_trans_189.sdi" />
+    <None Include="mysql\data\performance_schema\cond_instances_82.sdi" />
+    <None Include="mysql\data\performance_schema\data_locks_160.sdi" />
+    <None Include="mysql\data\performance_schema\data_lock_waits_161.sdi" />
+    <None Include="mysql\data\performance_schema\error_log_83.sdi" />
+    <None Include="mysql\data\performance_schema\events_errors_su_139.sdi" />
+    <None Include="mysql\data\performance_schema\events_errors_su_140.sdi" />
+    <None Include="mysql\data\performance_schema\events_errors_su_141.sdi" />
+    <None Include="mysql\data\performance_schema\events_errors_su_142.sdi" />
+    <None Include="mysql\data\performance_schema\events_errors_su_143.sdi" />
+    <None Include="mysql\data\performance_schema\events_stages_cu_111.sdi" />
+    <None Include="mysql\data\performance_schema\events_stages_hi_112.sdi" />
+    <None Include="mysql\data\performance_schema\events_stages_hi_113.sdi" />
+    <None Include="mysql\data\performance_schema\events_stages_su_114.sdi" />
+    <None Include="mysql\data\performance_schema\events_stages_su_115.sdi" />
+    <None Include="mysql\data\performance_schema\events_stages_su_116.sdi" />
+    <None Include="mysql\data\performance_schema\events_stages_su_117.sdi" />
+    <None Include="mysql\data\performance_schema\events_stages_su_118.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_119.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_120.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_121.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_122.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_123.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_124.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_125.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_126.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_127.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_128.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_129.sdi" />
+    <None Include="mysql\data\performance_schema\events_statement_130.sdi" />
+    <None Include="mysql\data\performance_schema\events_transacti_131.sdi" />
+    <None Include="mysql\data\performance_schema\events_transacti_132.sdi" />
+    <None Include="mysql\data\performance_schema\events_transacti_133.sdi" />
+    <None Include="mysql\data\performance_schema\events_transacti_134.sdi" />
+    <None Include="mysql\data\performance_schema\events_transacti_135.sdi" />
+    <None Include="mysql\data\performance_schema\events_transacti_136.sdi" />
+    <None Include="mysql\data\performance_schema\events_transacti_137.sdi" />
+    <None Include="mysql\data\performance_schema\events_transacti_138.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_cur_84.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_his_85.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_his_86.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_sum_87.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_sum_88.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_sum_89.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_sum_90.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_sum_91.sdi" />
+    <None Include="mysql\data\performance_schema\events_waits_sum_92.sdi" />
+    <None Include="mysql\data\performance_schema\file_instances_93.sdi" />
+    <None Include="mysql\data\performance_schema\file_summary_by__94.sdi" />
+    <None Include="mysql\data\performance_schema\file_summary_by__95.sdi" />
+    <None Include="mysql\data\performance_schema\global_status_181.sdi" />
+    <None Include="mysql\data\performance_schema\global_variables_184.sdi" />
+    <None Include="mysql\data\performance_schema\hosts_146.sdi" />
+    <None Include="mysql\data\performance_schema\host_cache_96.sdi" />
+    <None Include="mysql\data\performance_schema\keyring_componen_191.sdi" />
+    <None Include="mysql\data\performance_schema\keyring_keys_152.sdi" />
+    <None Include="mysql\data\performance_schema\log_status_174.sdi" />
+    <None Include="mysql\data\performance_schema\memory_summary_b_154.sdi" />
+    <None Include="mysql\data\performance_schema\memory_summary_b_155.sdi" />
+    <None Include="mysql\data\performance_schema\memory_summary_b_156.sdi" />
+    <None Include="mysql\data\performance_schema\memory_summary_b_157.sdi" />
+    <None Include="mysql\data\performance_schema\memory_summary_g_153.sdi" />
+    <None Include="mysql\data\performance_schema\metadata_locks_159.sdi" />
+    <None Include="mysql\data\performance_schema\mutex_instances_97.sdi" />
+    <None Include="mysql\data\performance_schema\objects_summary__98.sdi" />
+    <None Include="mysql\data\performance_schema\performance_time_99.sdi" />
+    <None Include="mysql\data\performance_schema\persisted_variab_187.sdi" />
+    <None Include="mysql\data\performance_schema\prepared_stateme_175.sdi" />
+    <None Include="mysql\data\performance_schema\processlist_100.sdi" />
+    <None Include="mysql\data\performance_schema\replication_appl_165.sdi" />
+    <None Include="mysql\data\performance_schema\replication_appl_166.sdi" />
+    <None Include="mysql\data\performance_schema\replication_appl_167.sdi" />
+    <None Include="mysql\data\performance_schema\replication_appl_168.sdi" />
+    <None Include="mysql\data\performance_schema\replication_appl_170.sdi" />
+    <None Include="mysql\data\performance_schema\replication_appl_171.sdi" />
+    <None Include="mysql\data\performance_schema\replication_asyn_172.sdi" />
+    <None Include="mysql\data\performance_schema\replication_asyn_173.sdi" />
+    <None Include="mysql\data\performance_schema\replication_conn_162.sdi" />
+    <None Include="mysql\data\performance_schema\replication_conn_164.sdi" />
+    <None Include="mysql\data\performance_schema\replication_grou_163.sdi" />
+    <None Include="mysql\data\performance_schema\replication_grou_169.sdi" />
+    <None Include="mysql\data\performance_schema\rwlock_instances_101.sdi" />
+    <None Include="mysql\data\performance_schema\session_account__151.sdi" />
+    <None Include="mysql\data\performance_schema\session_connect__150.sdi" />
+    <None Include="mysql\data\performance_schema\session_status_182.sdi" />
+    <None Include="mysql\data\performance_schema\session_variable_185.sdi" />
+    <None Include="mysql\data\performance_schema\setup_actors_102.sdi" />
+    <None Include="mysql\data\performance_schema\setup_consumers_103.sdi" />
+    <None Include="mysql\data\performance_schema\setup_instrument_104.sdi" />
+    <None Include="mysql\data\performance_schema\setup_objects_105.sdi" />
+    <None Include="mysql\data\performance_schema\setup_threads_106.sdi" />
+    <None Include="mysql\data\performance_schema\socket_instances_147.sdi" />
+    <None Include="mysql\data\performance_schema\socket_summary_b_148.sdi" />
+    <None Include="mysql\data\performance_schema\socket_summary_b_149.sdi" />
+    <None Include="mysql\data\performance_schema\status_by_accoun_177.sdi" />
+    <None Include="mysql\data\performance_schema\status_by_host_178.sdi" />
+    <None Include="mysql\data\performance_schema\status_by_thread_179.sdi" />
+    <None Include="mysql\data\performance_schema\status_by_user_180.sdi" />
+    <None Include="mysql\data\performance_schema\table_handles_158.sdi" />
+    <None Include="mysql\data\performance_schema\table_io_waits_s_107.sdi" />
+    <None Include="mysql\data\performance_schema\table_io_waits_s_108.sdi" />
+    <None Include="mysql\data\performance_schema\table_lock_waits_109.sdi" />
+    <None Include="mysql\data\performance_schema\threads_110.sdi" />
+    <None Include="mysql\data\performance_schema\tls_channel_stat_190.sdi" />
+    <None Include="mysql\data\performance_schema\users_144.sdi" />
+    <None Include="mysql\data\performance_schema\user_defined_fun_188.sdi" />
+    <None Include="mysql\data\performance_schema\user_variables_b_176.sdi" />
+    <None Include="mysql\data\performance_schema\variables_by_thr_183.sdi" />
+    <None Include="mysql\data\performance_schema\variables_info_186.sdi" />
+    <None Include="mysql\data\private_key.pem" />
+    <None Include="mysql\data\public_key.pem" />
+    <None Include="mysql\data\server-cert.pem" />
+    <None Include="mysql\data\server-key.pem" />
+    <None Include="mysql\data\sims\activitylogs.ibd" />
+    <None Include="mysql\data\sims\categories.ibd" />
+    <None Include="mysql\data\sims\categoriesproducts.ibd" />
+    <None Include="mysql\data\sims\items.ibd" />
+    <None Include="mysql\data\sims\products.ibd" />
+    <None Include="mysql\data\sims\productsaleshistory_coffee.ibd" />
+    <None Include="mysql\data\sims\productsaleshistory_hotcoffee.ibd" />
+    <None Include="mysql\data\sims\productsaleshistory_noncoffee.ibd" />
+    <None Include="mysql\data\sims\productsaleshistory_pastries.ibd" />
+    <None Include="mysql\data\sims\productsales_coffee.ibd" />
+    <None Include="mysql\data\sims\productsales_hotcoffee.ibd" />
+    <None Include="mysql\data\sims\productsales_noncoffee.ibd" />
+    <None Include="mysql\data\sims\productsales_pastries.ibd" />
+    <None Include="mysql\data\sims\staff.ibd" />
+    <None Include="mysql\data\sims\stocks.ibd" />
+    <None Include="mysql\data\sims\unittype.ibd" />
+    <None Include="mysql\data\sims\users.ibd" />
+    <None Include="mysql\data\sys\sys_config.ibd" />
+    <None Include="mysql\data\undo_001" />
+    <None Include="mysql\data\undo_002" />
+    <None Include="mysql\share\errmsg.sys">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -983,6 +1185,31 @@
     <None Include="Resources\reset.png" />
     <None Include="Resources\email.png" />
     <None Include="Resources\password.png" />
+    <Content Include="mysql\bin\abseil_dll.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mysql\bin\libcrypto-3-x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mysql\bin\libprotobuf-lite.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mysql\bin\libprotobuf.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mysql\bin\libssl-3-x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mysql\bin\mysql.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mysql\bin\mysqladmin.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mysql\bin\mysqld.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="scripts\sims.sql" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1016,4 +1243,16 @@
     <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
   <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "$(TargetDir)mysql" mkdir "$(TargetDir)mysql"
+if not exist "$(TargetDir)mysql\bin" mkdir "$(TargetDir)mysql\bin"
+if not exist "$(TargetDir)database" mkdir "$(TargetDir)database"
+
+if exist "$(ProjectDir)mysql\bin" xcopy "$(ProjectDir)mysql\bin\*.*" "$(TargetDir)mysql\bin\" /y /i /e
+if exist "$(ProjectDir)database" xcopy "$(ProjectDir)database\*.*" "$(TargetDir)database\" /y /i /e</PostBuildEvent>
+  </PropertyGroup>
 </Project>

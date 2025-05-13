@@ -12,7 +12,10 @@ namespace sims
         private const int maxAttempts = 3;
         private DateTime lockoutEndTime;
         private System.Windows.Forms.Timer lockoutTimer;
-        private const string lockoutFilePath = "lockout_data.txt";
+        private static readonly string lockoutFilePath =
+    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+    "SoothingCafe", "lockout_data.txt");
+
         private const int lockoutDurationSeconds = 20; // Configurable lockout duration
 
         public Login_Form()
@@ -32,6 +35,13 @@ namespace sims
         {
             try
             {
+                // Ensure the lockout file directory exists
+                string lockoutDir = Path.GetDirectoryName(lockoutFilePath);
+                if (!Directory.Exists(lockoutDir))
+                {
+                    Directory.CreateDirectory(lockoutDir);
+                }
+
                 if (File.Exists(lockoutFilePath))
                 {
                     string[] lockoutData = File.ReadAllLines(lockoutFilePath);
